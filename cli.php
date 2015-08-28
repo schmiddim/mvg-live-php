@@ -37,7 +37,6 @@ foreach ($container as $departure) {
 			if ($tdCtr == 1) {
 				$dest = explode("\n", $str);
 				$destination = trim($dest[1]);
-				var_dump($destination);
 				$departureObject->destination = $destination;
 			}
 			$tdCtr++;
@@ -46,7 +45,6 @@ foreach ($container as $departure) {
 	}
 
 }
-var_dump($departureObjects);
 
 foreach ($departureObjects as $departureObject) {
 	echo $departureObject->lineNumber . '   ' . $departureObject->destination . '   ' . $departureObject->time . "\n";
