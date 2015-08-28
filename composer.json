@@ -1,0 +1,6 @@
+{
+  "name": "mvg api",
+  "require": {
+    "electrolinux/phpquery": "dev-master"
+  }
+}
