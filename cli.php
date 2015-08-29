@@ -16,7 +16,7 @@ require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 $http = new Http('http', 'www.mvg-live.de', 'ims/dfiStaticAuswahl.svc');
 $result = $http->getDeparturesForStation('Karl-Theodor-Straße');
 $parser = new \Mvg\DeparturesParser($result);
-
+$parser->getDepartures();
 
 foreach ($parser->getDepartures() as $departureObject) {
 	echo $departureObject->lineNumber . '   ' . $departureObject->destination . '   ' . $departureObject->time . "\n";

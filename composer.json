@@ -4,6 +4,7 @@
     "psr-0": {"Mvg\\": "./src"}
   },
   "require": {
-    "electrolinux/phpquery": "dev-master"
+    "electrolinux/phpquery": "dev-master",
+    "yunait/forceutf8": "dev-master"
   }
 }

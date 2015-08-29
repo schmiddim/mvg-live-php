@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "89e615a603ca79c2e650f94aa923448c",
+    "hash": "312f7db04094cfd92638d361503a73aa",
     "packages": [
         {
             "name": "electrolinux/phpquery",
@@ -45,13 +45,48 @@
             "description": "phpQuery is a server-side, chainable, CSS3 selector driven Document Object Model (DOM) API based on jQuery JavaScript Library",
             "homepage": "http://code.google.com/p/phpquery/",
             "time": "2014-08-08 09:03:54"
+        },
+        {
+            "name": "yunait/forceutf8",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yunait/forceutf8.git",
+                "reference": "0843a23bafbb24c0f4f5299af287cc7857f37bc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yunait/forceutf8/zipball/0843a23bafbb24c0f4f5299af287cc7857f37bc3",
+                "reference": "0843a23bafbb24c0f4f5299af287cc7857f37bc3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ForceUTF8\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Sebastián Grignoli",
+                    "email": "grignoli@gmail.com"
+                }
+            ],
+            "description": "PHP Class Encoding featuring popular Encoding::toUTF8() function --formerly known as forceUTF8()-- that fixes mixed encoded strings.",
+            "homepage": "https://github.com/yunait/forceutf8",
+            "time": "2013-02-19 08:51:33"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "electrolinux/phpquery": 20
+        "electrolinux/phpquery": 20,
+        "yunait/forceutf8": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
