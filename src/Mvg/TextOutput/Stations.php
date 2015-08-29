@@ -8,12 +8,13 @@
 namespace Mvg\TextOutput;
 
 use Mvg\Parser\Stations as StationsParser;
+
 class Stations {
 
 	/**
 	 * @var Stations
 	 */
-	protected $stationsParser =null;
+	protected $stationsParser = null;
 
 	/**
 	 * @param StationsParser $stationsParser
@@ -22,10 +23,10 @@ class Stations {
 		$this->setStationsParser($stationsParser);
 	}
 
-	public function getOutput(){
-		$str='';
-		foreach($this->getStationsParser()->getStationsForTerm() as $station) {
-			$str.= $station->name ."\n";
+	public function getOutput() {
+		$str = '';
+		foreach ($this->getStationsParser()->getStationsForTerm() as $station) {
+			$str .= $station->name . "\n";
 		}
 		return $str;
 	}

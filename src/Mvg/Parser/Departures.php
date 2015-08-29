@@ -16,6 +16,15 @@ use phpQuery;
  */
 class Departures extends AbstractParser {
 
+	/**
+	 * @var string
+	 */
+	protected $currentTime;
+
+	/**
+	 * @var string
+	 */
+	protected $station;
 
 	public function getDepartures() {
 		$html = $this->getHtmlResponse();
@@ -34,19 +43,38 @@ class Departures extends AbstractParser {
 		}
 
 		//Time + Station name
-		echo $station = pq($html)->find('.headerStationColumn')->html();
-		die();
-
-
+		$this->setStation(pq('.headerStationColumn')->html());
+		$this->setCurrentTime(pq('.serverTimeColumn')->html());
 		return $departureObjects;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getCurrentTime() {
-
+		return $this->currentTime;
 	}
 
-	public function getStationName() {
-
+	/**
+	 * @param string $currentTime
+	 */
+	protected function setCurrentTime($currentTime) {
+		$this->currentTime = $currentTime;
 	}
+
+	/**
+	 * @return string
+	 */
+	public function getStation() {
+		return $this->station;
+	}
+
+	/**
+	 * @param string $station
+	 */
+	protected function setStation($station) {
+		$this->station = $station;
+	}
+
 
 }
