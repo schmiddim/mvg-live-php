@@ -27,7 +27,7 @@ class Departures implements FactoryInterface {
 
 	}
 
-	static function cmpObjects($a, $b) {
+	protected static function cmpObjects($a, $b) {
 
 		if ($a->time === $b->time) {
 			return 0;
