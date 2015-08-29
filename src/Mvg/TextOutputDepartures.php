@@ -8,10 +8,10 @@
 namespace Mvg;
 
 /**
- * Class TextOutput
+ * Class TextOutputDepartures
  * @package Mvg
  */
-class TextOutput {
+class TextOutputDepartures {
 
 	/**
 	 * @var array
