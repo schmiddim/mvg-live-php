@@ -5,7 +5,7 @@
  * Time: 10:14
  */
 
-namespace Mvg;
+namespace Mvg\Parser;
 
 /**
  * Class AbstractParser

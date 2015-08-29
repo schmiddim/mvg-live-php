@@ -5,20 +5,20 @@
  * Time: 14:34
  */
 
-namespace Mvg;
+namespace Mvg\TextOutput;
 
-
-class TextOutputStations {
+use Mvg\Parser\Stations as StationsParser;
+class Stations {
 
 	/**
-	 * @var StationParser
+	 * @var Stations
 	 */
 	protected $stationsParser =null;
 
 	/**
-	 * @param StationParser $stationsParser
+	 * @param StationsParser $stationsParser
 	 */
-	public function __construct(StationParser $stationsParser) {
+	public function __construct(StationsParser $stationsParser) {
 		$this->setStationsParser($stationsParser);
 	}
 
@@ -31,16 +31,16 @@ class TextOutputStations {
 	}
 
 	/**
-	 * @return StationParser
+	 * @return Stations
 	 */
 	protected function getStationsParser() {
 		return $this->stationsParser;
 	}
 
 	/**
-	 * @param StationParser $stationsParser
+	 * @param StationsParser $stationsParser
 	 */
-	protected function setStationsParser($stationsParser) {
+	protected function setStationsParser(StationsParser $stationsParser) {
 		$this->stationsParser = $stationsParser;
 	}
 

@@ -5,15 +5,15 @@
  * Time: 12:37
  */
 
-namespace Mvg;
+namespace Mvg\Parser;
 
 use phpQuery;
 
 /**
- * Class StationParser
+ * Class Stations
  * @package Mvg
  */
-class StationParser extends AbstractParser {
+class Stations extends AbstractParser {
 
 	/**
 	 * @param $searchTerm

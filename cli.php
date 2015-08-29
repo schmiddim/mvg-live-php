@@ -15,26 +15,30 @@
 
 use Mvg\Http;
 
+use Mvg\Parser\Departures;
+use Mvg\Parser\Stations;
+use Mvg\TextOutput\Departures as TextOutputDepartures;
+use Mvg\TextOutput\Stations  as TextOutputStations;
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
 
-$searchForStation ='Karl-Theodor-Straße';
 $searchForStation ='K';
+$searchForStation ='Karl-Theodor-Straße';
 
 
 $http = new Http('http', 'www.mvg-live.de', 'ims/dfiStaticAuswahl.svc');
 $result = $http->getDeparturesForStation($searchForStation);;
-$parser = new \Mvg\DeparturesParser($result);
+$parser = new Departures($result);
 $departures = $parser->getDepartures();
 if(0 === count($departures)) {
 	echo "Station unknown\n";
 	echo "Did you mean?\n";
-	$stationParser = new \Mvg\StationParser($result);
-	echo (new \Mvg\TextOutputStations($stationParser))->getOutput();
+	$stationParser = new Stations($result);
+	echo (new TextOutputStations($stationParser))->getOutput();
 
 
 } else {
-	echo (new \Mvg\TextOutputDepartures($parser))->getOutput();
+	echo (new TextOutputDepartures($parser))->getOutput();
 
 }
 

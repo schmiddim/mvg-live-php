@@ -5,28 +5,30 @@
  * Time: 11:00
  */
 
-namespace Mvg;
+namespace Mvg\TextOutput;
 
+
+use Mvg\Parser\Departures as DepaturesParser;
 /**
- * Class TextOutputDepartures
+ * Class Departures
  * @package Mvg
  */
-class TextOutputDepartures {
+class Departures {
 
 	/**
-	 * @var DeparturesParser
+	 * @var Departures
 	 */
 	protected $departuresParser = null;
 
 	/**
-	 * @param DeparturesParser $departuresParser
+	 * @param DepaturesParser $departuresParser
 	 */
-	public function __construct($departuresParser) {
+	public function __construct(DepaturesParser $departuresParser) {
 		$this->setDeparturesParser($departuresParser);
 	}
 
 	/**
-	 * @return DeparturesParser
+	 * @return Departures
 	 */
 	protected function getDeparturesParser() {
 		return $this->departuresParser;
@@ -34,9 +36,9 @@ class TextOutputDepartures {
 
 
 	/**
-	 * @param DeparturesParser $departuresParser
+	 * @param Departures $departuresParser
 	 */
-	protected function setDeparturesParser(DeparturesParser $departuresParser) {
+	protected function setDeparturesParser(DepaturesParser $departuresParser) {
 		$this->departuresParser = $departuresParser;
 	}
 

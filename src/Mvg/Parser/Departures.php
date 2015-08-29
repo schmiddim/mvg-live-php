@@ -5,16 +5,16 @@
  * Time: 09:36
  */
 
-namespace Mvg;
+namespace Mvg\Parser;
 
 
 use phpQuery;
 
 /**
- * Class DeparturesParser
+ * Class Departures
  * @package Mvg
  */
-class DeparturesParser extends AbstractParser {
+class Departures extends AbstractParser {
 
 
 	public function getDepartures() {
