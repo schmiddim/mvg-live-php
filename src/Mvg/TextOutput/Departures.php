@@ -7,9 +7,6 @@
 
 namespace Mvg\TextOutput;
 
-
-use Mvg\Parser\Departures as DeparturesParser;
-
 /**
  * Class Departures
  * @package Mvg
@@ -17,37 +14,37 @@ use Mvg\Parser\Departures as DeparturesParser;
 class Departures {
 
 	/**
-	 * @var \Mvg\Parser\Departures
+	 * @var \Mvg\Factories\Departures
 	 */
-	protected $departuresParser = null;
+	protected $departuresFactory = null;
 
 	/**
-	 * @param \Mvg\Parser\Departures $departuresParser
+	 * @param \Mvg\Factories\Departures $departuresFactory
 	 */
-	public function __construct($departuresParser) {
-		$this->setDeparturesParser($departuresParser);
+	public function __construct($departuresFactory) {
+		$this->setDeparturesFactory($departuresFactory);
 	}
 
 	/**
-	 * @return \Mvg\Parser\Departures
+	 * @return \Mvg\Factories\Departures
 	 */
-	protected function getDeparturesParser() {
-		return $this->departuresParser;
+	protected function getDeparturesFactory() {
+		return $this->departuresFactory;
 	}
 
 
 	/**
-	 * @param \Mvg\Parser\Departures $departuresParser
+	 * @param \Mvg\Factories\Departures $departuresFactory
 	 */
-	protected function setDeparturesParser($departuresParser) {
-		$this->departuresParser = $departuresParser;
+	protected function setDeparturesFactory($departuresFactory) {
+		$this->departuresFactory = $departuresFactory;
 	}
 
 	public function getOutput() {
 		$maxLenLineNumber = 0;
 		$maxLenDestination = 0;
 		$maxLenTime = 0;
-		foreach ($this->getDeparturesParser()->getItems() as $departureObject) {
+		foreach ($this->getDeparturesFactory()->getItems() as $departureObject) {
 
 			if (strlen($departureObject->lineNumber) > $maxLenLineNumber) {
 				$maxLenLineNumber = strlen($departureObject->lineNumber);
@@ -61,13 +58,13 @@ class Departures {
 			}
 		}
 		$str = sprintf('Abfahrtzeiten %s %s',
-			$this->getDeparturesParser()->getStation()
-			, $this->getDeparturesParser()->getCurrentTime()
+			$this->getDeparturesFactory()->getStation()
+			, $this->getDeparturesFactory()->getCurrentTime()
 		);
 
 		$str .= "\n";
 
-		foreach ($this->getDeparturesParser()->getItems() as $departureObject) {
+		foreach ($this->getDeparturesFactory()->getItems() as $departureObject) {
 			$str .= str_pad($departureObject->lineNumber, $maxLenLineNumber + 3, ' ', STR_PAD_RIGHT);
 			$str .= str_pad($departureObject->destination, $maxLenDestination + 3, ' ', STR_PAD_RIGHT);
 			$str .= str_pad($departureObject->time, $maxLenTime + 3, ' ', STR_PAD_RIGHT);
