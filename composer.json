@@ -1,8 +1,16 @@
 {
-  "name": "mvg api",
+  "name": "schmiddim/mvg-package",
   "autoload": {
     "psr-0": {"Mvg\\": "./src"}
   },
+  "description": "API Wrapper for MVG Live traffic info",
+  "authors": [
+    {
+      "name": "Michael Schmitt",
+      "email": "schmiddim@gmx.at"
+    }
+  ],
+  "minimum-stability": "dev",
   "require": {
     "electrolinux/phpquery": "dev-master"
   }
