@@ -18,6 +18,8 @@ use Mvg\Parser\Departures;
 use Mvg\Parser\Stations;
 use Mvg\TextOutput\Departures as TextOutputDepartures;
 use Mvg\TextOutput\Stations  as TextOutputStations;
+use Mvg\Factories\Departures as DeparturesFactory;
+
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
 unset($argv[0]);
@@ -39,7 +41,8 @@ if(0 === count($departures)) {
 
 
 } else {
-	echo (new TextOutputDepartures($parser))->getOutput();
+	$factory = new DeparturesFactory($parser);
+	echo (new TextOutputDepartures($factory))->getOutput();
 
 }
 

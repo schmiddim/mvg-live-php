@@ -47,7 +47,7 @@ class Departures {
 		$maxLenLineNumber = 0;
 		$maxLenDestination = 0;
 		$maxLenTime = 0;
-		foreach ($this->getDeparturesParser()->getDepartures() as $departureObject) {
+		foreach ($this->getDeparturesParser()->getItems() as $departureObject) {
 
 			if (strlen($departureObject->lineNumber) > $maxLenLineNumber) {
 				$maxLenLineNumber = strlen($departureObject->lineNumber);
@@ -67,7 +67,7 @@ class Departures {
 
 		$str .= "\n";
 
-		foreach ($this->getDeparturesParser()->getDepartures() as $departureObject) {
+		foreach ($this->getDeparturesParser()->getItems() as $departureObject) {
 			$str .= str_pad($departureObject->lineNumber, $maxLenLineNumber + 3, ' ', STR_PAD_RIGHT);
 			$str .= str_pad($departureObject->destination, $maxLenDestination + 3, ' ', STR_PAD_RIGHT);
 			$str .= str_pad($departureObject->time, $maxLenTime + 3, ' ', STR_PAD_RIGHT);
