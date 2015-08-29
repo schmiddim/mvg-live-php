@@ -19,7 +19,7 @@ require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
 
 $searchForStation ='Karl-Theodor-Straße';
-#$searchForStation ='K';
+$searchForStation ='K';
 
 
 $http = new Http('http', 'www.mvg-live.de', 'ims/dfiStaticAuswahl.svc');
@@ -30,10 +30,8 @@ if(0 === count($departures)) {
 	echo "Station unknown\n";
 	echo "Did you mean?\n";
 	$stationParser = new \Mvg\StationParser($result);
-	$stations = $stationParser->getStationsForTerm();
-	foreach($stations as $station) {
-		echo $station->name ."\n";
-	}
+	echo (new \Mvg\TextOutputStations($stationParser))->getOutput();
+
 
 } else {
 	echo (new \Mvg\TextOutputDepartures($parser))->getOutput();

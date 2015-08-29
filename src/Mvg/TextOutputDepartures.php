@@ -14,26 +14,27 @@ namespace Mvg;
 class TextOutputDepartures {
 
 	/**
-	 * @var array
+	 * @var DeparturesParser
 	 */
-	protected $departuresParser = array();
+	protected $departuresParser = null;
 
 	/**
-	 * @param array $data
+	 * @param DeparturesParser $departuresParser
 	 */
-	public function __construct($data = array()) {
-		$this->setDeparturesParser($data);
+	public function __construct($departuresParser) {
+		$this->setDeparturesParser($departuresParser);
 	}
 
 	/**
-	 * @return array
+	 * @return DeparturesParser
 	 */
 	protected function getDeparturesParser() {
 		return $this->departuresParser;
 	}
 
+
 	/**
-	 * @param array $departuresParser
+	 * @param DeparturesParser $departuresParser
 	 */
 	protected function setDeparturesParser(DeparturesParser $departuresParser) {
 		$this->departuresParser = $departuresParser;
@@ -43,8 +44,8 @@ class TextOutputDepartures {
 		$maxLenLineNumber = 0;
 		$maxLenDestination = 0;
 		$maxLenTime = 0;
+		foreach ($this->getDeparturesParser()->getDepartures() as $departureObject) {
 
-		foreach ($this->getDeparturesParser() as $departureObject) {
 			if (strlen($departureObject->lineNumber) > $maxLenLineNumber) {
 				$maxLenLineNumber = strlen($departureObject->lineNumber);
 			}
@@ -57,7 +58,7 @@ class TextOutputDepartures {
 			}
 		}
 		$str = '';
-		foreach ($this->getDeparturesParser() as $departureObject) {
+		foreach ($this->getDeparturesParser()->getDepartures() as $departureObject) {
 			$str .= str_pad($departureObject->lineNumber, $maxLenLineNumber + 3, ' ', STR_PAD_RIGHT);
 			$str .= str_pad($departureObject->destination, $maxLenDestination + 3, ' ', STR_PAD_RIGHT);
 			$str .= str_pad($departureObject->time, $maxLenTime + 3, ' ', STR_PAD_RIGHT);
