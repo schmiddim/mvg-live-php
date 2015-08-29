@@ -32,7 +32,21 @@ class Departures extends AbstractParser {
 			$departureObjects[] = $departureObject;
 
 		}
+
+		//Time + Station name
+		echo $station = pq($html)->find('.headerStationColumn')->html();
+		die();
+
+
 		return $departureObjects;
+	}
+
+	public function getCurrentTime() {
+
+	}
+
+	public function getStationName() {
+
 	}
 
 }
