@@ -21,10 +21,12 @@ use Mvg\TextOutput\Departures as TextOutputDepartures;
 use Mvg\TextOutput\Stations  as TextOutputStations;
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
+unset($argv[0]);
+$searchForStation = implode(' ', $argv);
 
-$searchForStation ='K';
-$searchForStation ='Karl-Theodor-Straße';
-
+if(1=== $argc) {
+	die("Please enter a station name\n");
+}
 
 $http = new Http('http', 'www.mvg-live.de', 'ims/dfiStaticAuswahl.svc');
 $result = $http->getDeparturesForStation($searchForStation);;
