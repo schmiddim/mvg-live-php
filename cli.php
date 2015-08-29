@@ -36,7 +36,7 @@ if(0 === count($departures)) {
 	}
 
 } else {
-	echo (new \Mvg\TextOutputDepartures($parser->getDepartures()))->getOutput();
+	echo (new \Mvg\TextOutputDepartures($parser))->getOutput();
 
 }
 
