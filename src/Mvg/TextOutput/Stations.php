@@ -12,7 +12,7 @@ use Mvg\Parser\Stations as StationsParser;
 class Stations {
 
 	/**
-	 * @var Stations
+	 * @var \Mvg\Parser\Stations
 	 */
 	protected $stationsParser = null;
 
