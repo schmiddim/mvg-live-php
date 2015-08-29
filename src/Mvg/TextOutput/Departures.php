@@ -17,19 +17,19 @@ use Mvg\Parser\Departures as DeparturesParser;
 class Departures {
 
 	/**
-	 * @var Departures
+	 * @var \Mvg\Parser\Departures
 	 */
 	protected $departuresParser = null;
 
 	/**
-	 * @param DeparturesParser $departuresParser
+	 * @param \Mvg\Parser\Departures $departuresParser
 	 */
 	public function __construct($departuresParser) {
 		$this->setDeparturesParser($departuresParser);
 	}
 
 	/**
-	 * @return DeparturesParser
+	 * @return \Mvg\Parser\Departures
 	 */
 	protected function getDeparturesParser() {
 		return $this->departuresParser;
@@ -37,7 +37,7 @@ class Departures {
 
 
 	/**
-	 * @param DeparturesParser $departuresParser
+	 * @param \Mvg\Parser\Departures $departuresParser
 	 */
 	protected function setDeparturesParser($departuresParser) {
 		$this->departuresParser = $departuresParser;

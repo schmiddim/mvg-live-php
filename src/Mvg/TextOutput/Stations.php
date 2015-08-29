@@ -17,7 +17,7 @@ class Stations {
 	protected $stationsParser = null;
 
 	/**
-	 * @param StationsParser $stationsParser
+	 * @param  \Mvg\Parser\Stations $stationsParser
 	 */
 	public function __construct(StationsParser $stationsParser) {
 		$this->setStationsParser($stationsParser);
@@ -32,14 +32,14 @@ class Stations {
 	}
 
 	/**
-	 * @return Stations
+	 * @return \Mvg\Parser\Stations
 	 */
 	protected function getStationsParser() {
 		return $this->stationsParser;
 	}
 
 	/**
-	 * @param StationsParser $stationsParser
+	 * @param \Mvg\Parser\Stations $stationsParser
 	 */
 	protected function setStationsParser(StationsParser $stationsParser) {
 		$this->stationsParser = $stationsParser;
