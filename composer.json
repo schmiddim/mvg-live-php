@@ -1,5 +1,8 @@
 {
   "name": "mvg api",
+  "autoload": {
+    "psr-0": {"Mvg\\": "./src"}
+  },
   "require": {
     "electrolinux/phpquery": "dev-master"
   }
