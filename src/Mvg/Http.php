@@ -63,7 +63,7 @@ class Http {
 
 		$response = file_get_contents($url);
 
-		return $response;
+		return utf8_encode($response);
 	}
 
 	/**
