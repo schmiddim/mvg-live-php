@@ -18,7 +18,4 @@ $result = $http->getDeparturesForStation('Karl-Theodor-Straße');
 $parser = new \Mvg\DeparturesParser($result);
 $parser->getDepartures();
 
-foreach ($parser->getDepartures() as $departureObject) {
-	echo $departureObject->lineNumber . '   ' . $departureObject->destination . '   ' . $departureObject->time . "\n";
-}
-
+echo  (new \Mvg\TextOutput($parser->getDepartures()))->getOutput();

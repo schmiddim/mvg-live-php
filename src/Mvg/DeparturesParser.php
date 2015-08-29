@@ -34,8 +34,9 @@ class DeparturesParser extends AbstractParser {
 			$departureObject = new \stdClass();
 			$departureObject->lineNumber = trim(pq($tableRow)->find('.lineColumn')->html());
 
-			//@todo remove the span
-			$departureObject->destination = trim(pq($tableRow)->find('.stationColumn')->html());
+
+
+			$departureObject->destination =trim(preg_replace("(<([a-z]+).*?>.*?</\\1>)is","", pq($tableRow)->find('.stationColumn')->html()));
 			$departureObject->time = trim(pq($tableRow)->find('.inMinColumn')->html());
 			$departureObjects[] = $departureObject;
 
