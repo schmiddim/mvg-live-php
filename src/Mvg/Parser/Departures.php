@@ -30,8 +30,7 @@ class Departures extends AbstractParser {
 		$html = $this->getHtmlResponse();
 		$departureObjects = [];
 		phpQuery::newDocumentHTML($html);
-		$tableRows = pq('.departureView> tbody .rowEven, .rowOdd');
-
+		$tableRows = pq('.rowEven,.rowOdd');
 		foreach ($tableRows as $tableRow) {
 			$tableRow = pq($tableRow)->remove('.spacer');
 			$departureObject = new \stdClass();
