@@ -1,5 +1,5 @@
 {
-  "name": "schmiddim/mvg-package",
+  "name": "schmiddim/mvg-traffic-informations",
   "description": "mvg-package is an API Wrapper for fetching infos from the MVV public transportation network in munich.",
   "licence" : "MIT",
   "autoload": {
