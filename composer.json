@@ -14,6 +14,7 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "electrolinux/phpquery": "dev-master"
+    "electrolinux/phpquery": "dev-master",
+    "secondtruth/phar-compiler": "1.1.*"
   }
 }
