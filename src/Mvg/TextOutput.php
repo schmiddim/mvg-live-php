@@ -56,12 +56,12 @@ class TextOutput {
 				$maxLenTime = strlen($departureObject->time);
 			}
 		}
-		$str='';
+		$str = '';
 		foreach ($this->getDepartures() as $departureObject) {
-			$str.=str_pad($departureObject->lineNumber, $maxLenLineNumber + 3, ' ', STR_PAD_RIGHT);
-			$str.=str_pad($departureObject->destination, $maxLenDestination + 3, ' ', STR_PAD_RIGHT);
-			$str.=str_pad($departureObject->time, $maxLenTime + 3, ' ', STR_PAD_RIGHT);
-			$str.="\n";
+			$str .= str_pad($departureObject->lineNumber, $maxLenLineNumber + 3, ' ', STR_PAD_RIGHT);
+			$str .= str_pad($departureObject->destination, $maxLenDestination + 3, ' ', STR_PAD_RIGHT);
+			$str .= str_pad($departureObject->time, $maxLenTime + 3, ' ', STR_PAD_RIGHT);
+			$str .= "\n";
 		}
 		return $str;
 	}
