@@ -2,7 +2,7 @@
   "name": "schmiddim/mvg-traffic-informations",
   "description": "mvg-package is an API Wrapper for fetching infos from the MVV public transportation network in munich.",
   "homepage": "http://www.radikalblogger.de",
-  "licence": "MIT",
+  "license": "GPL-3.0",
   "autoload": {
     "psr-0": {"Mvg\\": "./src"}
   },

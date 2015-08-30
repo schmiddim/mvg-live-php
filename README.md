@@ -1,7 +1,8 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/schmiddim/mvg-live-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/schmiddim/mvg-live-php/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/schmiddim/mvg-live-php/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/schmiddim/mvg-live-php/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/schmiddim/mvg-live-php/badges/build.png?b=master)](https://scrutinizer-ci.com/g/schmiddim/mvg-live-php/build-status/master)
-
+[![Latest Stable](http://img.shields.io/packagist/v/schmiddim/mvg-package.svg)](https://packagist.org/p/schmiddim/mvg-package)
+[![License](http://img.shields.io/packagist/l/schmiddim/mvg-package.svg)](https://packagist.org/p/schmiddim/mvg-package)
 
 #MVG-LIVE-PHP
 
