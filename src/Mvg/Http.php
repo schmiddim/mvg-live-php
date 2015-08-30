@@ -53,6 +53,7 @@ class Http {
 
 	/**
 	 * @return string
+	 * @throws \Exception
 	 */
 	protected function doRequest() {
 
