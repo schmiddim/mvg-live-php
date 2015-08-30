@@ -1,7 +1,8 @@
 {
   "name": "schmiddim/mvg-traffic-informations",
   "description": "mvg-package is an API Wrapper for fetching infos from the MVV public transportation network in munich.",
-  "licence" : "MIT",
+  "homepage": "http://www.radikalblogger.de",
+  "licence": "MIT",
   "autoload": {
     "psr-0": {"Mvg\\": "./src"}
   },
@@ -14,8 +15,9 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "electrolinux/phpquery": "dev-master",
-    "secondtruth/phar-compiler": "1.1.*",
-    "zendframework/zend-http":"2.5.2"
+    "php": ">=5.5",
+    "electrolinux/phpquery": "0.9.6",
+    "secondtruth/phar-compiler": "1.0.0",
+    "zendframework/zend-http": "2.5.2"
   }
 }

@@ -30,7 +30,7 @@ if(1=== $argc) {
 }
 
 $http = new Http('http', 'www.mvg-live.de', 'ims/dfiStaticAuswahl.svc');
-$result = $http->getDeparturesForStation($searchForStation);;
+$result = $http->getDeparturesForStation($searchForStation);
 $parser = new Departures($result);
 $departures = $parser->getDepartures();
 if(0 === count($departures)) {
