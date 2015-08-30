@@ -46,15 +46,15 @@ class Departures {
 		$maxLenTime = 0;
 		foreach ($this->getDeparturesFactory()->getItems() as $departureObject) {
 
-			if (strlen($departureObject->lineNumber) > $maxLenLineNumber) {
-				$maxLenLineNumber = strlen($departureObject->lineNumber);
+			if (mb_strlen($departureObject->lineNumber) > $maxLenLineNumber) {
+				$maxLenLineNumber = mb_strlen($departureObject->lineNumber);
 			}
 
-			if (strlen($departureObject->destination) > $maxLenDestination) {
-				$maxLenDestination = strlen($departureObject->destination);
+			if (mb_strlen($departureObject->destination) > $maxLenDestination) {
+				$maxLenDestination = mb_strlen($departureObject->destination);
 			}
-			if (strlen($departureObject->time) > $maxLenTime) {
-				$maxLenTime = strlen($departureObject->time);
+			if (mb_strlen($departureObject->time) > $maxLenTime) {
+				$maxLenTime = mb_strlen($departureObject->time);
 			}
 		}
 		$str = sprintf('Abfahrtzeiten %s %s',

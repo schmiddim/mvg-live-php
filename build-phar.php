@@ -16,6 +16,7 @@ $compiler->addIndexFile('cli.php');
 $compiler->addFile('vendor/autoload.php');
 $compiler->addDirectory('vendor/composer', '!*.php');
 $compiler->addDirectory('vendor/electrolinux', '!*.php');
+$compiler->addDirectory('vendor/zendframework', '!*.php');
 $compiler->addDirectory('src', '!*.php');
 
 

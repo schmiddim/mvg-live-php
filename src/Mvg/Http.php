@@ -6,6 +6,8 @@
  */
 namespace Mvg;
 
+use Zend\Http\Client;
+
 /**
  * Class Http
  * @package Mvg
@@ -60,10 +62,14 @@ class Http {
 			, $this->getPath()
 			, http_build_query($this->getParameter(), PHP_QUERY_RFC3986)
 		);
-
-		$response = file_get_contents($url);
-
-		return utf8_encode($response);
+		$client = new Client();
+		$client->setUri($url)
+			->setMethod(\Zend\Http\Request::METHOD_GET);
+		$response = $client->send();
+		if ($response->getStatusCode() !== 200) {
+			throw new \Exception(sprintf('Request Response: Status Code %d', $response->getStatusCode()));
+		}
+		return utf8_encode($response->getBody());
 	}
 
 	/**
