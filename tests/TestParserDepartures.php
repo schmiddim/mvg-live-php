@@ -4,13 +4,14 @@
  * Date: 01.09.15
  * Time: 21:41
  */
+namespace tests;
 
 use Mvg\Parser\Departures;
 
 
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
-class TestParserDepartures extends PHPUnit_Framework_TestCase {
+class TestParserDepartures extends  \PHPUnit_Framework_TestCase {
 
 	const RESPONSE_FOR_TEST_WITH_RESULTS = 'testWithResults.html';
 	const RESPONSE_FOR_TEST_WITHOUT_RESULTS = 'testWithoutResults.html';

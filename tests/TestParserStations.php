@@ -5,6 +5,8 @@
  * Date: 01.09.15
  * Time: 22:04
  */
+namespace tests;
+
 use Mvg\Parser\Stations;
 use Mvg\TextOutput\Stations as TextOutputStations;
 
