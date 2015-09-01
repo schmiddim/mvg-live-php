@@ -12,7 +12,7 @@ use Mvg\TextOutput\Stations as TextOutputStations;
 
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
-class TestParserStations extends PHPUnit_Framework_TestCase {
+class TestParserStations extends \PHPUnit_Framework_TestCase {
 	const RESPONSE_FOR_TEST_KARL = 'testStationsKarl.html';
 
 	public function testWithResults() {

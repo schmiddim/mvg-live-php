@@ -35,8 +35,22 @@ class Departures implements FactoryInterface {
 		return ($a->time > $b->time) ? +1 : -1;
 	}
 
-	public function getItems() {
-		return $this->departures;
+	/**
+	 * @param string $filter
+	 * @return array
+	 */
+	public function getItems($filter = '') {
+		if ('' === $filter) {
+			return $this->departures;
+		}
+		$departures = array();
+
+		foreach ($this->departures as $departure) {
+			if ($filter === $departure->destination) {
+				$departures[] = $departure;
+			}
+		}
+		return $departures;
 	}
 
 	/**

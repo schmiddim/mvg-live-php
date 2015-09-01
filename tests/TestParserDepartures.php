@@ -29,7 +29,7 @@ class TestParserDepartures extends \PHPUnit_Framework_TestCase {
 		$departures = $parser->getDepartures();
 		$this->assertCount(11, $departures);
 
-		$firstDeparture = new stdClass();
+		$firstDeparture = new \stdClass();
 		$firstDeparture->lineNumber = "12";
 		$firstDeparture->destination = "Scheidplatz";
 		$firstDeparture->time = "8";
