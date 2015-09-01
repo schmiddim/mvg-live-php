@@ -5,11 +5,11 @@
  * Time: 22:09
  */
 namespace tests;
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
 use Mvg\Parser\Departures;
 use Mvg\Factories\Departures as DeparturesFactory;
 
-require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
 class TestFactoryDepartures extends \PHPUnit_Framework_TestCase {
 	const RESPONSE_FOR_TEST_WITH_RESULTS = 'testWithResults.html';
