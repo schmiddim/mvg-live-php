@@ -26,9 +26,19 @@ class Departures extends AbstractParser {
 	 */
 	protected $station;
 
-	public function getDepartures() {
+	/**
+	 * @var array
+	 */
+	protected $departureObjects = array();
+
+	/**
+	 * @param $htmlResponse
+	 */
+	public function __construct($htmlResponse) {
+
+		parent::__construct($htmlResponse);
+
 		$html = $this->getHtmlResponse();
-		$departureObjects = [];
 		phpQuery::newDocumentHTML($html);
 		$tableRows = pq('.rowEven,.rowOdd');
 		foreach ($tableRows as $tableRow) {
@@ -37,14 +47,19 @@ class Departures extends AbstractParser {
 			$departureObject->lineNumber = trim(pq($tableRow)->find('.lineColumn')->html());
 			$departureObject->destination = trim(preg_replace("(<([a-z]+).*?>.*?</\\1>)is", "", pq($tableRow)->find('.stationColumn')->html()));
 			$departureObject->time = trim(pq($tableRow)->find('.inMinColumn')->html());
-			$departureObjects[] = $departureObject;
+			$this->departureObjects[] = $departureObject;
 
 		}
 
 		//Time + Station name
 		$this->setStation(pq('.headerStationColumn')->html());
 		$this->setCurrentTime(pq('.serverTimeColumn')->html());
-		return $departureObjects;
+
+
+	}
+
+	public function getDepartures() {
+		return $this->departureObjects;
 	}
 
 	/**
