@@ -13,7 +13,6 @@
  */
 
 use Mvg\Http;
-
 use Mvg\Parser\Departures;
 use Mvg\Parser\Stations;
 use Mvg\TextOutput\Departures as TextOutputDepartures;
