@@ -15,7 +15,7 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "php": ">=5.5",
+//    "php": ">=5.5",
     "electrolinux/phpquery": "0.9.6",
     "secondtruth/phar-compiler": "1.0.0",
     "zendframework/zend-http": "2.5.2"
