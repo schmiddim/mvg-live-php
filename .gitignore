@@ -57,3 +57,5 @@ crashlytics.properties
 crashlytics-build.properties
 
 build/*.phar
+build/coverage
+build/logs

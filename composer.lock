@@ -340,12 +340,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-validator.git",
-                "reference": "8dedd745505124b55ade1b44312dcddbc419b774"
+                "reference": "724f69f845f27e0436af7343a5bd5c9e7748bcaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/8dedd745505124b55ade1b44312dcddbc419b774",
-                "reference": "8dedd745505124b55ade1b44312dcddbc419b774",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/724f69f845f27e0436af7343a5bd5c9e7748bcaa",
+                "reference": "724f69f845f27e0436af7343a5bd5c9e7748bcaa",
                 "shasum": ""
             },
             "require": {
@@ -398,7 +398,7 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2015-08-26 20:26:03"
+            "time": "2015-09-03 19:14:39"
         }
     ],
     "packages-dev": [
