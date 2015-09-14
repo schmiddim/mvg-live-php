@@ -55,12 +55,19 @@ class NewsTicker extends AbstractParser {
 
 		}
 
-		$objects = array();
-
 		foreach ($payload as $key => $item) {
 			if (0 == ($key % 2)) {
 				$object = new \stdClass();
 				$object->lines = $item;
+
+				//get Lines with problems
+				$stringToAnalyze = trim(str_replace('Linie(n)', '', $item));
+				$linesString = explode(':', $stringToAnalyze)[0];
+				$object->affectedLines = explode(',', $linesString);
+				array_walk($object->affectedLines, function (&$item) {
+					$item = trim($item);
+				});
+
 			} else {
 				$object->messages = $item;
 				$this->interferences[] = $object;

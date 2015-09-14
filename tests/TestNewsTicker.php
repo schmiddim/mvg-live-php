@@ -35,6 +35,10 @@ class TestNewsTicker extends \PHPUnit_Framework_TestCase {
 		$this->assertCount(2, $interferences);
 		$this->assertEquals('Linie(n) 58, 100: Umleitung im Bereich Hauptbahnhof', $interferences[0]->lines);
 		$this->assertEquals('Linie(n) 27, 28, 100: Behinderungen wegen Großdemonstration', $interferences[1]->lines);
+
+		$this->assertCount(3,$interferences[1]->affectedLines);
+		$this->assertEquals('27', $interferences[1]->affectedLines[0]);
+		$this->assertEquals('28', $interferences[1]->affectedLines[1]);
 	}
 
 	public function test2Results2() {
@@ -44,6 +48,13 @@ class TestNewsTicker extends \PHPUnit_Framework_TestCase {
 		$this->assertCount(2, $interferences);
 		$this->assertEquals('Linie(n) 58, 100: Umleitung im Bereich Hauptbahnhof', $interferences[0]->lines);
 		$this->assertEquals('Linie(n) 27, 28, 100: Behinderungen wegen Großdemonstration', $interferences[1]->lines);
+		$this->assertCount(2,$interferences[0]->affectedLines);
+		$this->assertEquals('58', $interferences[0]->affectedLines[0]);
+		$this->assertEquals('100', $interferences[0]->affectedLines[1]);
+
+		$this->assertCount(3,$interferences[1]->affectedLines);
+		$this->assertEquals('27', $interferences[1]->affectedLines[0]);
+		$this->assertEquals('28', $interferences[1]->affectedLines[1]);
 	}
 
 	public function test1Result() {
@@ -53,5 +64,9 @@ class TestNewsTicker extends \PHPUnit_Framework_TestCase {
 		$this->assertCount(1, $interferences);
 		$this->assertEquals('Linie(n) 58, 100: Umleitung im Bereich Hauptbahnhof', $interferences[0]->lines);
 
+
+		$this->assertCount(2,$interferences[0]->affectedLines);
+		$this->assertEquals('58', $interferences[0]->affectedLines[0]);
+		$this->assertEquals('100', $interferences[0]->affectedLines[1]);
 	}
 }
