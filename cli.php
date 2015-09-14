@@ -12,7 +12,7 @@
  * http://www.mvg-live.de/ims/dfiStaticAuswahl.svc?haltestelle=Karl&ubahn=checked&bus=checked&tram=checked&sbahn=checked
  */
 
-use Mvg\Http;
+use Mvg\HttpGetDepartures;
 use Mvg\Parser\Departures;
 use Mvg\Parser\Stations;
 use Mvg\TextOutput\Departures as TextOutputDepartures;
@@ -28,7 +28,7 @@ if(1=== $argc) {
 	die("Please enter a station name\n");
 }
 
-$http = new Http('http', 'www.mvg-live.de', 'ims/dfiStaticAuswahl.svc');
+$http = new HttpGetDepartures('http', 'www.mvg-live.de', 'ims/dfiStaticAuswahl.svc');
 $result = $http->getDeparturesForStation($searchForStation);
 $parser = new Departures($result);
 $departures = $parser->getDepartures();

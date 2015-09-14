@@ -12,7 +12,7 @@ use Zend\Http\Client;
  * Class Http
  * @package Mvg
  */
-class Http {
+class HttpGetDepartures {
 	/**
 	 * @var string
 	 */
