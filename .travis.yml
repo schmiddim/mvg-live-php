@@ -14,3 +14,12 @@ before_script:
 
 script:
   - phpunit -c build/phpunit.xml
+
+build:
+    tests:
+        override:
+            -
+                command: 'phpunit -c build/phpunit.xml --coverage-clover=some-file'
+                coverage:
+                    file: 'some-file'
+                    format: 'php-clover'
