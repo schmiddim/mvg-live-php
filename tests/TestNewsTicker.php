@@ -9,6 +9,7 @@
 namespace tests;
 
 use \Mvg\Parser\NewsTicker as NewsTickerParser;
+
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
 class TestNewsTicker extends \PHPUnit_Framework_TestCase {
@@ -44,6 +45,7 @@ class TestNewsTicker extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals('Linie(n) 58, 100: Umleitung im Bereich Hauptbahnhof', $interferences[0]->lines);
 		$this->assertEquals('Linie(n) 27, 28, 100: Behinderungen wegen Großdemonstration', $interferences[1]->lines);
 	}
+
 	public function test1Result() {
 		$response = self::getResponse(self::RESPONSE_3_RESULT_1);
 		$newsTickerParser = new NewsTickerParser($response);
