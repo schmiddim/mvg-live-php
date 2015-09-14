@@ -16,4 +16,3 @@ $response = (new HttpPostNewsTicker())->doPostRequest();
 ###############
 $newsTicker = new \Mvg\Parser\NewsTicker($response);
 var_dump($newsTicker->getInterferences());
-die();
