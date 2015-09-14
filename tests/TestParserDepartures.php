@@ -41,7 +41,7 @@ class TestParserDepartures extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testWithoutResults() {
-		$file = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'test-assets' . DIRECTORY_SEPARATOR . self::RESPONSE_FOR_TEST_WITHOUT_RESULTS;
+		$file = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'fixtures' . DIRECTORY_SEPARATOR . self::RESPONSE_FOR_TEST_WITHOUT_RESULTS;
 		$response = utf8_encode(file_get_contents($file));
 		$parser = new Departures($response);
 		$departures = $parser->getDepartures();
