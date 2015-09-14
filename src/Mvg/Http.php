@@ -55,7 +55,7 @@ class Http {
 	 * @return string
 	 * @throws \Exception
 	 */
-	protected function doRequest() {
+	protected function doGetRequest() {
 
 		$url = sprintf('%s://%s/%s?%s'
 			, $this->getSchema()
@@ -86,8 +86,12 @@ class Http {
 	 */
 	public function getDeparturesForStation($station) {
 		$this->addParameter('haltestelle', $station);
-		$htmlResponse = $this->doRequest();
+		$htmlResponse = $this->doGetRequest();
 		return $htmlResponse;
+	}
+
+	public function getNewsTicker() {
+
 	}
 
 	/**
