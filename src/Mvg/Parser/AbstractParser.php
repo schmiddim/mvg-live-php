@@ -17,8 +17,8 @@ class AbstractParser {
 	 */
 	protected $htmlResponse;
 
-	public function __construct($htmlResponse) {
-		$this->setHtmlResponse($htmlResponse);
+	public function __construct($response) {
+		$this->setHtmlResponse($response);
 	}
 
 	/**

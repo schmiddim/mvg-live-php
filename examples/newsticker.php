@@ -36,52 +36,10 @@ $client->setHeaders($headers);
 $client->setRawBody('7|0|4|http://www.mvg-live.de/MvgLive/mvglive/|7690A2A77A0295D3EC713772A06B8898|de.swm.mvglive.gwt.client.newsticker.GuiNewstickerService|getNewsticker|1|2|3|4|0|');
 $response = $client->send();
 
+#var_dump($response);die();
 
 //Parsen
 ###############
-
-$jsonString = str_replace('//OK', '', $response->getBody());
-$array = json_decode($jsonString);
-
-$payload = null;
-//Find the interesting part
-foreach ($array as $item) {
-	if (is_array($item)) {
-		$payload = $item;
-		break;
-	}
-}
-if (null === $payload) {
-	throw new \Exception('unable to parse payload from ' . $jsonString);
-}
-
-//Remove the Javastuff
-foreach ($payload as $key => $item) {
-	if (preg_match('/de.swm.mvglive.gwt.client.newsticker.NewstickerItem/', $item)) {
-		unset($payload[$key]);
-	}
-	if (preg_match('/java.util.ArrayList/', $item)) {
-		unset($payload[$key]);
-	}
-}
-#var_dump($payload);
-
-if (0 != (count($payload) % 2)) {
-	throw new \Exception('Item count is odd! ' . $jsonString);
-
-}
-
-$objects =array();
-
-foreach ($payload as $key => $item) {
-	if (0 == ($key % 2)) {
-		$object = new \stdClass();
-		$object->lines = $item;
-	} else {
-		$object->messages = $item;
-		$objects[] = $object;
-	}
-
-}
-
-var_dump($objects);
+$newsTicker = new \Mvg\Parser\NewsTicker($response->getBody());
+var_dump($newsTicker->getInterferences());
+die();
