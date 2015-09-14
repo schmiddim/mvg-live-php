@@ -16,7 +16,7 @@ class TestFactoryDepartures extends \PHPUnit_Framework_TestCase {
 	const RESPONSE_FOR_TEST_WITHOUT_RESULTS = 'testWithoutResults.html';
 
 	public function testWithResultsAndWithoutFilter() {
-		$file = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'test-assets' . DIRECTORY_SEPARATOR . self::RESPONSE_FOR_TEST_WITH_RESULTS;
+		$file = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'fixtures' . DIRECTORY_SEPARATOR . self::RESPONSE_FOR_TEST_WITH_RESULTS;
 		$response = utf8_encode(file_get_contents($file));
 		$parser = new Departures($response);
 

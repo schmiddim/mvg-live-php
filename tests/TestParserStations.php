@@ -16,7 +16,7 @@ class TestParserStations extends \PHPUnit_Framework_TestCase {
 	const RESPONSE_FOR_TEST_KARL = 'testStationsKarl.html';
 
 	public function testWithResults() {
-		$file = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'test-assets' . DIRECTORY_SEPARATOR . self::RESPONSE_FOR_TEST_KARL;
+		$file = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'fixtures' . DIRECTORY_SEPARATOR . self::RESPONSE_FOR_TEST_KARL;
 		$response = utf8_encode(file_get_contents($file));
 
 		$stationParser = new Stations($response);
