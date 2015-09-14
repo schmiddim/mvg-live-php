@@ -16,15 +16,29 @@ use Mvg\HttpGetDepartures;
 use Mvg\Parser\Departures;
 use Mvg\Parser\Stations;
 use Mvg\TextOutput\Departures as TextOutputDepartures;
-use Mvg\TextOutput\Stations  as TextOutputStations;
+use Mvg\TextOutput\Stations as TextOutputStations;
 use Mvg\Factories\Departures as DeparturesFactory;
+use Mvg\HttpPostNewsTicker;
+use Mvg\TextOutput\NewsTicker as NewsTickerOutput;
+
 
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
 unset($argv[0]);
 $searchForStation = implode(' ', $argv);
 
-if(1=== $argc) {
+
+
+$responseForNewsTicker = (new HttpPostNewsTicker())->doPostRequest();
+$newsTickerParser = new \Mvg\Parser\NewsTicker($responseForNewsTicker);
+$interferences = $newsTickerParser->getInterferences();
+if (0 < count($interferences)) {
+	echo "Interferences\n";
+	echo (new NewsTickerOutput($newsTickerParser))->getOutput();
+
+}
+
+if (1 === $argc) {
 	die("Please enter a station name\n");
 }
 
@@ -32,7 +46,7 @@ $http = new HttpGetDepartures('http', 'www.mvg-live.de', 'ims/dfiStaticAuswahl.s
 $result = $http->getDeparturesForStation($searchForStation);
 $parser = new Departures($result);
 $departures = $parser->getDepartures();
-if(0 === count($departures)) {
+if (0 === count($departures)) {
 	echo "Station unknown\n";
 	echo "Did you mean?\n";
 	$stationParser = new Stations($result);
