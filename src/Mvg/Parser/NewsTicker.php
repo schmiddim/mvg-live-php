@@ -54,7 +54,7 @@ class NewsTicker extends AbstractParser {
 			throw new \Exception('Item count is odd! ' . $jsonString);
 
 		}
-
+		$object = new \stdClass();
 		foreach ($payload as $key => $item) {
 			if (0 == ($key % 2)) {
 				$object = new \stdClass();
