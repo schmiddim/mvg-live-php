@@ -40,6 +40,21 @@ class Departures {
 		$this->departuresFactory = $departuresFactory;
 	}
 
+	/**
+	 * found here http://stackoverflow.com/a/11871948
+	 * @param $input
+	 * @param $pad_length
+	 * @param string $pad_string
+	 * @param int $pad_type
+	 * @return string
+	 */
+	public static function mb_str_pad( $input, $pad_length, $pad_string = ' ', $pad_type = STR_PAD_RIGHT)
+	{
+        mb_internal_encoding('utf-8'); // @important
+        $diff = strlen( $input ) - mb_strlen( $input );
+		return str_pad( $input, $pad_length + $diff, $pad_string, $pad_type );
+	}
+
 	public function getOutput() {
 		$maxLenLineNumber = 0;
 		$maxLenDestination = 0;
@@ -65,9 +80,9 @@ class Departures {
 		$str .= "\n";
 
 		foreach ($this->getDeparturesFactory()->getItems() as $departureObject) {
-			$str .= str_pad($departureObject->lineNumber, $maxLenLineNumber + 3, ' ', STR_PAD_RIGHT);
-			$str .= str_pad($departureObject->destination, $maxLenDestination + 3, ' ', STR_PAD_RIGHT);
-			$str .= str_pad($departureObject->time, $maxLenTime + 3, ' ', STR_PAD_RIGHT);
+			$str .= self::mb_str_pad($departureObject->lineNumber, $maxLenLineNumber + 3, ' ', STR_PAD_RIGHT);
+			$str .= self::mb_str_pad($departureObject->destination, $maxLenDestination + 3, ' ', STR_PAD_RIGHT);
+			$str .= self::mb_str_pad($departureObject->time, $maxLenTime + 3, ' ', STR_PAD_RIGHT);
 			$str .= "\n";
 		}
 		return $str;
