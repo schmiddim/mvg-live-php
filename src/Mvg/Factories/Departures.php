@@ -36,17 +36,23 @@ class Departures implements FactoryInterface {
 	}
 
 	/**
-	 * @param string $filter
+	 * Filter By Destination
+	 * @param mixed $filter
 	 * @return array
 	 */
 	public function getItems($filter = '') {
 		if ('' === $filter) {
 			return $this->departures;
 		}
+
+		if(false === is_array($filter)) {
+			$filter =[$filter];
+		}
+
 		$departures = array();
 
 		foreach ($this->departures as $departure) {
-			if ($filter === $departure->destination) {
+			if (true === in_array($departure->destination, $filter)) {
 				$departures[] = $departure;
 			}
 		}

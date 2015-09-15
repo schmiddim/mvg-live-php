@@ -21,42 +21,63 @@ use Mvg\Factories\Departures as DeparturesFactory;
 use Mvg\HttpPostNewsTicker;
 use Mvg\TextOutput\NewsTicker as NewsTickerOutput;
 
-
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
-unset($argv[0]);
-$searchForStation = implode(' ', $argv);
 
+try {
+	$opts = new Zend\Console\Getopt(
+		array(
+			'news|n' => 'Show news about Interferences',
+			'stations|s=s' => 'Stations - separate multiple stations with ;',
 
+			'apple|a' => 'apple option, with no parameter',
+			'banana|b=i' => 'banana option, with required integer parameter',
+			'pear|p-s' => 'pear option, with optional string parameter'
+		)
+	);
+	$opts->parse();
 
-$responseForNewsTicker = (new HttpPostNewsTicker())->doPostRequest();
-$newsTickerParser = new \Mvg\Parser\NewsTicker($responseForNewsTicker);
-$interferences = $newsTickerParser->getInterferences();
-if (0 < count($interferences)) {
-	echo "Interferences\n";
-	echo (new NewsTickerOutput($newsTickerParser))->getOutput();
-
+} catch (Zend\Console\Exception\RuntimeException $e) {
+	echo $e->getUsageMessage();
+	exit;
+}
+if(null === $opts->getOption('s')){
+	echo $opts->getUsageMessage();
+	exit;
 }
 
-if (1 === $argc) {
-	die("Please enter a station name\n");
+//Stations
+$stationString = trim($opts->getOption('s'));
+$searchForStations = explode(';', $stationString);
+
+foreach ($searchForStations as $searchForStation) {
+	$searchForStation = trim($searchForStation);
+	$http = new HttpGetDepartures('http', 'www.mvg-live.de', 'ims/dfiStaticAuswahl.svc');
+	$result = $http->getDeparturesForStation($searchForStation);
+	$parser = new Departures($result);
+	$departures = $parser->getDepartures();
+	if (0 === count($departures)) {
+		echo "Station '" . $searchForStation . "' unknown\n";
+		echo "Did you mean?\n";
+		$stationParser = new Stations($result);
+		echo (new TextOutputStations($stationParser))->getOutput();
+	} else {
+		$factory = new DeparturesFactory($parser);
+		echo (new TextOutputDepartures($factory))->getOutput();
+	}
 }
 
-$http = new HttpGetDepartures('http', 'www.mvg-live.de', 'ims/dfiStaticAuswahl.svc');
-$result = $http->getDeparturesForStation($searchForStation);
-$parser = new Departures($result);
-$departures = $parser->getDepartures();
-if (0 === count($departures)) {
-	echo "Station unknown\n";
-	echo "Did you mean?\n";
-	$stationParser = new Stations($result);
-	echo (new TextOutputStations($stationParser))->getOutput();
 
+//Display news from the ticker
+if (true === $opts->getOption('n')) {
+	$responseForNewsTicker = (new HttpPostNewsTicker())->doPostRequest();
+	$newsTickerParser = new \Mvg\Parser\NewsTicker($responseForNewsTicker);
+	$interferences = $newsTickerParser->getInterferences();
+	if (0 < count($interferences)) {
+		echo "Interferences\n";
+		echo (new NewsTickerOutput($newsTickerParser))->getOutput();
 
-} else {
-	$factory = new DeparturesFactory($parser);
-	echo (new TextOutputDepartures($factory))->getOutput();
-
+	} else {
+		echo "No Interferences\n";
+	}
 }
-
-

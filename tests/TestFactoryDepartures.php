@@ -68,6 +68,19 @@ class TestFactoryDepartures extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	public function testArrayFilter(){
+		$file = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'fixtures' . DIRECTORY_SEPARATOR . self::RESPONSE_FOR_TEST_WITH_RESULTS;
+		$response = utf8_encode(file_get_contents($file));
+		$parser = new Departures($response);
+
+		$this->assertEquals('Karl-Theodor-Straße', $parser->getStation());
+		$this->assertEquals('21:46', $parser->getCurrentTime());
+		$factory = new DeparturesFactory($parser);
+		$departures = $factory->getItems(['Romanplatz','Sendlinger Tor' ]);
+		$this->assertCount(4, $departures);
+
+
+	}
 	public function testWithOuthResultsAndWithFilter() {
 		$file = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'fixtures' . DIRECTORY_SEPARATOR . self::RESPONSE_FOR_TEST_WITHOUT_RESULTS;
 		$response = utf8_encode(file_get_contents($file));
