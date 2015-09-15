@@ -18,7 +18,7 @@ run composer install
 You can also create a .phar file by running build-phar.php
 
 ##Usage
-./mvv-cli.phar  Karl-Theodor-Straße
+./mvv-cli.phar -s 'Bonner Platz; Karl-Theodor-Straße' -e 'Sendlinger Tor;Fürstenried West' -n
 
 
 ##Composer

@@ -68,6 +68,9 @@ class TestFactoryDepartures extends \PHPUnit_Framework_TestCase {
 
 	}
 
+	/**
+	 * Test multiple Filters
+	 */
 	public function testArrayFilter(){
 		$file = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'fixtures' . DIRECTORY_SEPARATOR . self::RESPONSE_FOR_TEST_WITH_RESULTS;
 		$response = utf8_encode(file_get_contents($file));

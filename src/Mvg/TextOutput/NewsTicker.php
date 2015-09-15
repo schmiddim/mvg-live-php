@@ -30,7 +30,7 @@ class NewsTicker {
 		$str = '';
 		foreach ($this->getNewsTickerParser()->getInterferences() as $interference) {
 
-			$str .= '===' . $interference->lines . '===' ."\n";
+			$str .= '===' . $interference->lines . '===' . "\n";
 			$str .= $interference->messages . "\n";
 		}
 		return $str;

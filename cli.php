@@ -28,11 +28,8 @@ try {
 	$opts = new Zend\Console\Getopt(
 		array(
 			'news|n' => 'Show news about Interferences',
-			'stations|s=s' => 'Stations - separate multiple stations with ;',
-
-			'apple|a' => 'apple option, with no parameter',
-			'banana|b=i' => 'banana option, with required integer parameter',
-			'pear|p-s' => 'pear option, with optional string parameter'
+			'stations|s=s' => 'Departure Stations - separate multiple stations with ;',
+			'ends|e=s' => 'end of lines - separate multiple stations with ;'
 		)
 	);
 	$opts->parse();
@@ -41,7 +38,7 @@ try {
 	echo $e->getUsageMessage();
 	exit;
 }
-if(null === $opts->getOption('s')){
+if (null === $opts->getOption('s')) {
 	echo $opts->getUsageMessage();
 	exit;
 }
@@ -49,6 +46,15 @@ if(null === $opts->getOption('s')){
 //Stations
 $stationString = trim($opts->getOption('s'));
 $searchForStations = explode(';', $stationString);
+
+//End of Lines
+if (null !== $opts->getOption('e')) {
+	$endStationString = trim($opts->getOption('e'));
+	$filterForStations = explode(';', $endStationString);
+} else {
+	$filterForStations = array();
+}
+
 
 foreach ($searchForStations as $searchForStation) {
 	$searchForStation = trim($searchForStation);
@@ -63,7 +69,7 @@ foreach ($searchForStations as $searchForStation) {
 		echo (new TextOutputStations($stationParser))->getOutput();
 	} else {
 		$factory = new DeparturesFactory($parser);
-		echo (new TextOutputDepartures($factory))->getOutput();
+		echo (new TextOutputDepartures($factory, $filterForStations))->getOutput();
 	}
 }
 
