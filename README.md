@@ -25,5 +25,5 @@ You can also create a .phar file by running build-phar.php
 You can use the library in your projects with [composer](https://packagist.org/packages/schmiddim/mvg-package)
 
 
-
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/schmiddim/mvg-live-php/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
