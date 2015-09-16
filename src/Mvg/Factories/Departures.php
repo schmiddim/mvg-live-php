@@ -48,6 +48,10 @@ class Departures implements FactoryInterface {
 			return $this->departures;
 		}
 
+		if( true === empty($filter)) {
+			return $this->departures;
+		}
+
 		if (false === is_array($filter)) {
 			$filter = [$filter];
 		}
