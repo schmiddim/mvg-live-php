@@ -5,7 +5,7 @@
  * Time: 22:57
  */
 use Mvg\Http;
-use Mvg\Parser\Departures;
+use  Mvg\Parser\Html\Departures;
 use Mvg\Factories\Departures as DeparturesFactory;
 
 error_reporting(E_ALL);

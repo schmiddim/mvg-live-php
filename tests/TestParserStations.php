@@ -7,7 +7,7 @@
  */
 namespace tests;
 
-use Mvg\Parser\Stations;
+use  Mvg\Parser\Html\Stations;
 use Mvg\TextOutput\Stations as TextOutputStations;
 
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor/autoload.php';

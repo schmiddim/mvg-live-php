@@ -5,7 +5,7 @@
  * Time: 10:14
  */
 
-namespace Mvg\Parser;
+namespace  Mvg\Parser\Html;
 
 /**
  * Class AbstractParser

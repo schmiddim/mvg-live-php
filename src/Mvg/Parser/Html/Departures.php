@@ -5,7 +5,7 @@
  * Time: 09:36
  */
 
-namespace Mvg\Parser;
+namespace  Mvg\Parser\Html;
 
 
 use phpQuery;

@@ -13,8 +13,8 @@
  */
 
 use Mvg\HttpGetDepartures;
-use Mvg\Parser\Departures;
-use Mvg\Parser\Stations;
+use  Mvg\Parser\Html\Departures;
+use  Mvg\Parser\Html\Stations;
 use Mvg\TextOutput\Departures as TextOutputDepartures;
 use Mvg\TextOutput\Stations as TextOutputStations;
 use Mvg\Factories\Departures as DeparturesFactory;
@@ -77,7 +77,7 @@ foreach ($searchForStations as $searchForStation) {
 //Display news from the ticker
 if (true === $opts->getOption('n')) {
 	$responseForNewsTicker = (new HttpPostNewsTicker())->doPostRequest();
-	$newsTickerParser = new \Mvg\Parser\NewsTicker($responseForNewsTicker);
+	$newsTickerParser = new \ Mvg\Parser\Html\NewsTicker($responseForNewsTicker);
 	$interferences = $newsTickerParser->getInterferences();
 	if (0 < count($interferences)) {
 		echo "Interferences\n";

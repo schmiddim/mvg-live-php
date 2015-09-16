@@ -7,17 +7,17 @@
 
 namespace Mvg\TextOutput;
 
-use Mvg\Parser\Stations as StationsParser;
+use  Mvg\Parser\Html\Stations as StationsParser;
 
 class Stations {
 
 	/**
-	 * @var \Mvg\Parser\Stations
+	 * @var \ Mvg\Parser\Html\Stations
 	 */
 	protected $stationsParser = null;
 
 	/**
-	 * @param  \Mvg\Parser\Stations $stationsParser
+	 * @param  \ Mvg\Parser\Html\Stations $stationsParser
 	 */
 	public function __construct(StationsParser $stationsParser) {
 		$this->setStationsParser($stationsParser);
@@ -32,14 +32,14 @@ class Stations {
 	}
 
 	/**
-	 * @return \Mvg\Parser\Stations
+	 * @return \ Mvg\Parser\Html\Stations
 	 */
 	protected function getStationsParser() {
 		return $this->stationsParser;
 	}
 
 	/**
-	 * @param \Mvg\Parser\Stations $stationsParser
+	 * @param \ Mvg\Parser\Html\Stations $stationsParser
 	 */
 	protected function setStationsParser(StationsParser $stationsParser) {
 		$this->stationsParser = $stationsParser;

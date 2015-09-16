@@ -7,7 +7,7 @@
 namespace Mvg\Factories;
 
 
-use Mvg\Parser\Departures as ParserDepartures;
+use  Mvg\Parser\Html\Departures as ParserDepartures;
 
 class Departures implements FactoryInterface {
 	/**

@@ -7,7 +7,7 @@
 namespace tests;
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
-use Mvg\Parser\Departures;
+use  Mvg\Parser\Html\Departures;
 use Mvg\Factories\Departures as DeparturesFactory;
 
 

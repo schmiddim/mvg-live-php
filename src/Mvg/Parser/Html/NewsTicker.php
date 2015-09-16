@@ -5,7 +5,7 @@
  * Time: 21:24
  */
 
-namespace Mvg\Parser;
+namespace  Mvg\Parser\Html;
 
 
 class NewsTicker extends AbstractParser {

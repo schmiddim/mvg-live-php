@@ -7,18 +7,18 @@
 
 namespace Mvg\TextOutput;
 
-use Mvg\Parser\NewsTicker as NewsTickerParser;
+use  Mvg\Parser\Html\NewsTicker as NewsTickerParser;
 
 class NewsTicker {
 
 	/**
-	 * @va Mvg\Parser\NewsTicker
+	 * @va  Mvg\Parser\Html\NewsTicker
 	 */
 	protected $newsTickerParser = null;
 
 
 	/**
-	 * @param Mvg\Parser\NewsTicker $newsTickerParser
+	 * @param  Mvg\Parser\Html\NewsTicker $newsTickerParser
 	 */
 	public function __construct(NewsTickerParser $newsTickerParser) {
 
@@ -37,14 +37,14 @@ class NewsTicker {
 	}
 
 	/**
-	 * @return Mvg\Parser\NewsTicker
+	 * @return  Mvg\Parser\Html\NewsTicker
 	 */
 	protected function getNewsTickerParser() {
 		return $this->newsTickerParser;
 	}
 
 	/**
-	 * @param  Mvg\Parser\NewsTicker
+	 * @param   Mvg\Parser\Html\NewsTicker
 	 */
 	protected function setNewsTickerParser($newsTickerParser) {
 		$this->newsTickerParser = $newsTickerParser;

@@ -8,7 +8,7 @@
 
 namespace tests;
 
-use \Mvg\Parser\NewsTicker as NewsTickerParser;
+use \ Mvg\Parser\Html\NewsTicker as NewsTickerParser;
 
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
