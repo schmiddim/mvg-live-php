@@ -12,7 +12,7 @@ use phpQuery;
 
 /**
  * Class Departures
- * @package Mvg
+ * @package Mvg\Parser\Html
  */
 class Departures extends AbstractParser {
 

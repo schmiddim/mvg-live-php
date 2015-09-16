@@ -9,7 +9,7 @@ namespace  Mvg\Parser\Html;
 
 /**
  * Class AbstractParser
- * @package Mvg
+ * @package Mvg\Parser\Html
  */
 class AbstractParser {
 	/**

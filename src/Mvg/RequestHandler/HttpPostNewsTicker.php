@@ -5,7 +5,7 @@
  * Time: 21:55
  */
 
-namespace Mvg;
+namespace Mvg\RequestHandler;
 
 use Zend\Http\Client;
 

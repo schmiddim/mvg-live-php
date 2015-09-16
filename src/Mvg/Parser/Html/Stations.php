@@ -9,9 +9,10 @@ namespace  Mvg\Parser\Html;
 
 use phpQuery;
 
+
 /**
  * Class Stations
- * @package Mvg
+ * @package Mvg\Parser\Html
  */
 class Stations extends AbstractParser {
 

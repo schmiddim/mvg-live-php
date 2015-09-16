@@ -12,13 +12,13 @@
  * http://www.mvg-live.de/ims/dfiStaticAuswahl.svc?haltestelle=Karl&ubahn=checked&bus=checked&tram=checked&sbahn=checked
  */
 
-use Mvg\HttpGetDepartures;
 use  Mvg\Parser\Html\Departures;
 use  Mvg\Parser\Html\Stations;
 use Mvg\TextOutput\Departures as TextOutputDepartures;
 use Mvg\TextOutput\Stations as TextOutputStations;
 use Mvg\Factories\Departures as DeparturesFactory;
-use Mvg\HttpPostNewsTicker;
+use Mvg\RequestHandler\HttpPostNewsTicker;
+use Mvg\RequestHandler\HttpGetDepartures;
 use Mvg\TextOutput\NewsTicker as NewsTickerOutput;
 
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';

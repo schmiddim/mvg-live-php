@@ -7,7 +7,10 @@
 
 namespace  Mvg\Parser\Html;
 
-
+/**
+ * Class NewsTicker
+ * @package Mvg\Parser\Html
+ */
 class NewsTicker extends AbstractParser {
 
 	/**
