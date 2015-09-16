@@ -9,7 +9,7 @@ namespace  Mvg\Parser\Html;
 
 
 use phpQuery;
-
+use Mvg\Parser\AbstractParser;
 /**
  * Class Departures
  * @package Mvg\Parser\Html

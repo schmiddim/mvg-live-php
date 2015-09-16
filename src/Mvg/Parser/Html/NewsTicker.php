@@ -6,7 +6,7 @@
  */
 
 namespace  Mvg\Parser\Html;
-
+use Mvg\Parser\AbstractParser;
 /**
  * Class NewsTicker
  * @package Mvg\Parser\Html
