@@ -4,7 +4,7 @@
  * Date: 29.08.15
  * Time: 09:35
  */
-namespace Mvg\RequestHandler;
+namespace Mvg\RequestHandler\Html;
 
 use Zend\Http\Client;
 

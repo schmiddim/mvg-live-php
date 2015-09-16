@@ -17,8 +17,8 @@ use  Mvg\Parser\Html\Stations;
 use Mvg\TextOutput\Departures as TextOutputDepartures;
 use Mvg\TextOutput\Stations as TextOutputStations;
 use Mvg\Factories\Departures as DeparturesFactory;
-use Mvg\RequestHandler\HttpPostNewsTicker;
-use Mvg\RequestHandler\HttpGetDepartures;
+use Mvg\RequestHandler\Html\HttpPostNewsTicker;
+use Mvg\RequestHandler\Html\HttpGetDepartures;
 use Mvg\TextOutput\NewsTicker as NewsTickerOutput;
 
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
