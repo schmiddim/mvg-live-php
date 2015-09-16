@@ -11,7 +11,7 @@ use  Mvg\Parser\Html\Departures;
 use Mvg\Factories\Departures as DeparturesFactory;
 
 
-class TestFactoryDepartures extends \PHPUnit_Framework_TestCase {
+class TestHtmlFactoryDepartures extends \PHPUnit_Framework_TestCase {
 	const RESPONSE_FOR_TEST_WITH_RESULTS = 'testWithResults.html';
 	const RESPONSE_FOR_TEST_WITHOUT_RESULTS = 'testWithoutResults.html';
 
