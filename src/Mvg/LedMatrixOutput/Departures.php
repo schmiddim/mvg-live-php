@@ -66,7 +66,7 @@ class Departures
 		$returnValue['departures'] = array();
 		$departuresItems = $this->getDeparturesFactory()->getItems($this->getFilter());
 		if(count($departuresItems) == 0 )  {
-			return $returnValue;
+			return null;
 		}
 		foreach ($departuresItems as $departureObject) {
 			$returnValue['departures'][] = intval($departureObject->time);

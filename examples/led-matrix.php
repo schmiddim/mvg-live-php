@@ -20,7 +20,7 @@ $searchForStations = array(
 );
 $filterForStations = array(
 	'Fürstenried West',
-	'Sendlinger Tor' ,
+	'Sendlinger Tor',
 	'Einsteinstraße'
 );
 #$filterForStations = [];
@@ -35,8 +35,11 @@ foreach ($searchForStations as $searchForStation) {
 
 
 	$factory = new DeparturesFactory($parser);
-	$outputArrays['lines'][] =( new LedMatrixOutPutDepartues($factory, $filterForStations))->getOutput();
 
+	$lineArray = (new LedMatrixOutPutDepartues($factory, $filterForStations))->getOutput();
+	if (null !== $lineArray) {
+		$outputArrays['lines'][] = $lineArray;
+	}
 
 }
 $outputArrays['lineCount'] = count($outputArrays['lines']);
