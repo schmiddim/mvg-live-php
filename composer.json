@@ -6,7 +6,6 @@
   "autoload": {
     "psr-0": {"Mvg\\": "./src"}
   },
-  "description": "API Wrapper for MVG Live traffic info",
   "authors": [
     {
       "name": "Michael Schmitt",
