@@ -85,7 +85,7 @@ class Departures
 		if ($lineNumber === 'U3') {
 			return array(
 				'red' => 255,
-				'green' => 127,
+				'green' => 50,
 				'blue' => 0);
 		} else {
 			return array(

@@ -44,5 +44,14 @@ foreach ($searchForStations as $searchForStation) {
 }
 $outputArrays['lineCount'] = count($outputArrays['lines']);
 
-echo json_encode($outputArrays);
-$break = true;
+/*
+ * ArduinoJson Library has trouble with UTF-8 encoding
+ * And the Content-Length must be set in the Header
+ */
+ob_start();
+echo iconv("UTF-8", "CP437", trim(json_encode($outputArrays)));
+$content = ob_get_contents();
+$length = strlen($content);
+header('Content-Length: ' . $length);
+
+ob_end();
