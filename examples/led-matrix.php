@@ -16,12 +16,14 @@ require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATO
 
 $searchForStations = array(
 	'Bonner Platz',
-	'Karl-Theodor-Straße'
+	'Karl-Theodor-Straße',
+	'Hohenzollernplatz'
 );
 $filterForStations = array(
 	'Fürstenried West',
 	'Sendlinger Tor',
-	'Einsteinstraße'
+	'Einsteinstraße',
+	'Messestadt Ost',
 );
 #$filterForStations = [];
 $outputArrays = array();
@@ -44,14 +46,10 @@ foreach ($searchForStations as $searchForStation) {
 }
 $outputArrays['lineCount'] = count($outputArrays['lines']);
 
-/*
- * ArduinoJson Library has trouble with UTF-8 encoding
- * And the Content-Length must be set in the Header
- */
+//ArduinoJson Library has trouble with unicode
 ob_start();
-echo iconv("UTF-8", "CP437", trim(json_encode($outputArrays)));
+echo iconv("UTF-8", "CP437",trim(json_encode($outputArrays)) );
 $content = ob_get_contents();
 $length = strlen($content);
-header('Content-Length: ' . $length);
-
+header('Content-Length: '.$length);
 ob_end();

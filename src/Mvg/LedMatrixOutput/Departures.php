@@ -65,7 +65,7 @@ class Departures
 		$returnValue = array();
 		$returnValue['departures'] = array();
 		$departuresItems = $this->getDeparturesFactory()->getItems($this->getFilter());
-		if(count($departuresItems) == 0 )  {
+		if (count($departuresItems) == 0) {
 			return null;
 		}
 		foreach ($departuresItems as $departureObject) {
@@ -85,8 +85,23 @@ class Departures
 		if ($lineNumber === 'U3') {
 			return array(
 				'red' => 255,
-				'green' => 50,
+				'green' => 127,
 				'blue' => 0);
+		} elseif ($lineNumber === '28') {
+			return array(
+				'red' => 100,
+				'green' => 0,
+				'blue' => 0);
+		} elseif ($lineNumber === 'U2') {
+			return array(
+				'red' => 100,
+				'green' => 0,
+				'blue' => 20);
+		} elseif ($lineNumber === 'U8') {
+			return array(
+				'red' => 100,
+				'green' => 0,
+				'blue' => 10);
 		} else {
 			return array(
 				'red' => 0,
