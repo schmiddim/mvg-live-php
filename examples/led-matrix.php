@@ -52,4 +52,3 @@ echo iconv("UTF-8", "CP437",trim(json_encode($outputArrays)) );
 $content = ob_get_contents();
 $length = strlen($content);
 header('Content-Length: '.$length);
-ob_end();
