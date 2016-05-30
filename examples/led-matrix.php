@@ -4,13 +4,10 @@
 -s '' -e '' -n
 
 */
-use  Mvg\Parser\Html\Departures;
-use  Mvg\Parser\Html\Stations;
-use Mvg\TextOutput\Departures as TextOutputDepartures;
-use Mvg\TextOutput\Stations as TextOutputStations;
 use Mvg\Factories\Departures as DeparturesFactory;
-use Mvg\RequestHandler\Html\HttpGetDepartures;
 use Mvg\LedMatrixOutput\Departures as LedMatrixOutPutDepartues;
+use Mvg\Parser\Html\Departures;
+use Mvg\RequestHandler\Html\HttpGetDepartures;
 
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
