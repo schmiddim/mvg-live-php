@@ -17,13 +17,15 @@ require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATO
 $searchForStations = array(
 	'Bonner Platz',
 	'Karl-Theodor-Straße',
-	'Hohenzollernplatz'
 );
 $filterForStations = array(
 	'Fürstenried West',
 	'Sendlinger Tor',
 	'Einsteinstraße',
 	'Messestadt Ost',
+	'Karlsplatz Nord',
+	'Romanplatz',
+	#'Scheidplatz',
 );
 #$filterForStations = [];
 $outputArrays = array();
